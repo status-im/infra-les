@@ -4,4 +4,4 @@
     - les-main
     - les-rops
   roles:
-    - les-geth-full
+    - les-node
