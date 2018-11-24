@@ -16,7 +16,7 @@ terraform {
     address   = "https://consul.statusim.net:8400"
     lock      = true
     # WARNING This needs to be changed for every repo.
-    path      = "terraform/misc/"
+    path      = "terraform/les/"
     ca_file   = "ansible/files/consul-ca.crt"
     cert_file = "ansible/files/consul-client.crt"
     key_file  = "ansible/files/consul-client.key"
@@ -28,8 +28,8 @@ terraform {
 module "les-main" {
   source   = "github.com/status-im/infra-tf-digital-ocean"
   count    = 3
-  env      = "les-main"
-  group    = "les-main"
+  env      = "main"
+  group    = "main-les"
   size     = "s-2vcpu-4gb"
   vol_size = 800
   domain   = "${var.domain}"
@@ -39,8 +39,8 @@ module "les-main" {
 module "les-rops" {
   source   = "github.com/status-im/infra-tf-digital-ocean"
   count    = 3
-  env      = "les-rops"
-  group    = "les-rops"
+  env      = "rops"
+  group    = "rops-les"
   size     = "s-2vcpu-4gb"
   vol_size = 100
   domain   = "${var.domain}"
