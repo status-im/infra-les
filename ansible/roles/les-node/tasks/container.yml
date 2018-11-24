@@ -1,0 +1,34 @@
+---
+- name: Run Geth container
+  docker_container:
+    name: '{{ geth_name }}'
+    image: '{{ geth_image }}'
+    user: root
+    pull: true
+    restart_policy: always
+    state: '{{ cont_state }}'
+    recreate: '{{ cont_recreate }}'
+    restart: '{{ cont_restart }}'
+    # some limits due to statusd hogging resources
+    memory: '{{ cont_mem_limit }}m'
+    memory_swap: '{{ cont_swap_limit }}m'
+    ports:
+      - '{{ geth_port }}:{{ geth_port }}'
+      - '127.0.0.1:{{ geth_rpc_port }}:{{ geth_rpc_port }}'
+    command: |
+      --testnet
+      --networkid={{ geth_network }}
+      --cache={{ geth_cache }}
+      --port={{ geth_port }}
+      --lightserv={{ geth_light_serv }}
+      --lightpeers={{ geth_light_peers }}
+      --datadir=/data
+      --keystore=/keys
+      --nat=extip:{{ ansible_host }}
+      --rpc --rpcapi=eth,admin
+      --rpcaddr=0.0.0.0
+      --rpcport={{ geth_rpc_port }}
+    volumes:
+      - '{{ geth_vol }}/keys:/keys:rw'
+      # WARNING: This assumes /data is mounted, see bootstrap role
+      - '/data:/data:rw'
