@@ -1,0 +1,7 @@
+---
+- name: Configure LES Geth nodes
+  hosts:
+    - les-main
+    - les-rops
+  roles:
+    - les-geth-full

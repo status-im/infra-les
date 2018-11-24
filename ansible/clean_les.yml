@@ -1,0 +1,23 @@
+- name: Configure LES Geth nodes
+  hosts:
+    - les-main
+    - les-rops
+  gather_facts: false
+  tasks:
+    - name: Stop LES container
+      docker_container:
+        name: les-geth-full
+        state: stopped
+
+    - name: Clear LES data
+      file:
+        path: '/data/{{ item }}'
+        state: absent
+      with_items:
+        - geth
+        - geth.ipc
+
+    - name: Start LES container
+      docker_container:
+        name: les-geth-full
+        state: started
