@@ -31,7 +31,7 @@ install-unzip:
  		$(error "No unzip in PATH, consider doing apt install unzip") \
  	endif
 
-install-provider:
+install-provider: install-unzip
 	if [ ! -e $(PLUGIN_DIR)/$(ARCH)/$(PROVIDER_NAME)_$(PROVIDER_VERSION) ]; then \
 		mkdir -p $(PLUGIN_DIR); \
 		wget $(PROVIDER_URL) -P $(PLUGIN_DIR); \
