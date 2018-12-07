@@ -2,10 +2,8 @@
 
 OS = $(strip $(shell uname -s))
 ARCH = linux_amd64
-PLATFORM = linux
 ifeq ($(OS),Darwin)
 	ARCH = darwin_amd64
-	PLATFORM = darwin
 endif
 
 PLUGIN_DIR = ~/.terraform.d/plugins
@@ -20,7 +18,7 @@ PROVISIONER_VERSION = v2.0.0
 PROVISIONER_ARCHIVE = $(PROVISIONER_NAME)-$(subst _,-,$(ARCH))_$(PROVISIONER_VERSION)
 PROVISIONER_URL = https://github.com/radekg/terraform-provisioner-ansible/releases/download/$(PROVISIONER_VERSION)/$(PROVISIONER_ARCHIVE)
 
-all: requirements install-provider install-provisioner secrets
+all: requirements install-provider install-provisioner secrets init-terraform
 	echo "Success!"
 
 plugins: install-provider install-provisioner
@@ -46,6 +44,9 @@ install-provisioner:
 		wget $(PROVISIONER_URL) -O $(PLUGIN_DIR)/$(ARCH)/$(PROVISIONER_NAME)_$(PROVISIONER_VERSION); \
 		chmod +x $(PLUGIN_DIR)/$(ARCH)/$(PROVISIONER_NAME)_$(PROVISIONER_VERSION); \
 	fi
+
+init-terraform:
+	terraform init -upgrade=true
 
 secrets:
 	pass services/consul/ca-crt > ansible/files/consul-ca.crt
