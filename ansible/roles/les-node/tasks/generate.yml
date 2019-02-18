@@ -3,6 +3,8 @@
   file:
     path: '{{ geth_keys }}'
     state: directory
+    owner: dockremap
+    recurse: true
 
 - name: Find all enode files
   find:

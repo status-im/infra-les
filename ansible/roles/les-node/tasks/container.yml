@@ -1,4 +1,10 @@
 ---
+- name: Make sure geth will have access to /data
+  file:
+    path: /data
+    owner: dockremap
+    recurse: true
+
 - name: Run Geth container
   docker_container:
     name: '{{ geth_name }}'
