@@ -128,7 +128,7 @@ def _backup_ansible(inventory):
         ).format(**host)
     text += '\n'
     for name, hosts in inventory.iteritems():
-        if name == '_meta':
+        if name in ['_meta', 'all']:
             continue
         text += '[{}]\n'.format(name)
         for host in hosts['hosts']:
