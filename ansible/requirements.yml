@@ -1,7 +1,12 @@
+---
 - name: infra-role-bootstrap
   src: git@github.com:status-im/infra-role-bootstrap.git
   scm: git
 
 - name: consul-service
   src: git@github.com:status-im/infra-role-consul-service.git
+  scm: git
+
+- name: infra-role-geth
+  src: git@github.com:status-im/infra-role-geth.git
   scm: git

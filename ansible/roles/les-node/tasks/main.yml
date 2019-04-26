@@ -1,5 +1,0 @@
----
-- include_tasks: generate.yml
-- include_tasks: container.yml
-- include_tasks: firewall.yml
-- include_tasks: consul.yml

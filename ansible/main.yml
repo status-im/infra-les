@@ -4,4 +4,4 @@
     - main-les
     - rops-les
   roles:
-    - les-node
+    - infra-role-geth
