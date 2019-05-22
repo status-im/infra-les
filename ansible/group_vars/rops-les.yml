@@ -4,7 +4,7 @@ geth_network_name: ropsten
 geth_cont_name: les-geth-full
 geth_sync_mode: full
 geth_data_path: /data
-geth_cont_image: 'ethereum/client-go:v1.8.17'
+geth_cont_image: 'ethereum/client-go:v1.8.27'
 geth_log_level_name: info
 
 # geth metrics
