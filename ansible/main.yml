@@ -5,3 +5,4 @@
     - rops-les
   roles:
     - infra-role-geth
+    - infra-role-geth-exporter

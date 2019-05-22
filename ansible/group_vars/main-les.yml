@@ -6,3 +6,8 @@ geth_sync_mode: full
 geth_data_path: /data
 geth_cont_image: 'ethereum/client-go:v1.8.17'
 geth_log_level_name: info
+
+# geth metrics
+geth_source_cont_name: '{{ geth_cont_name }}'
+geth_expo_cont_name: '{{ geth_cont_name }}-metrics'
+geth_expo_cont_image: 'statusteam/geth_exporter:sync-metrics'
