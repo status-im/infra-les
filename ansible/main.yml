@@ -3,6 +3,7 @@
   hosts:
     - main-les
     - rops-les
+    - goerli-les
   roles:
     - infra-role-geth
     - infra-role-geth-exporter
