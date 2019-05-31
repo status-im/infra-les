@@ -10,4 +10,3 @@ geth_log_level_name: info
 # geth metrics
 geth_source_cont_name: '{{ geth_cont_name }}'
 geth_expo_cont_name: '{{ geth_cont_name }}-metrics'
-geth_expo_cont_image: 'statusteam/geth_exporter:sync-metrics'
