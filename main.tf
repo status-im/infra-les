@@ -47,13 +47,13 @@ module "les-rops" {
   open_ports = [ "30303-30303" ]
 }
 
-module "les-goerli" {
-  source   = "github.com/status-im/infra-tf-digital-ocean"
-  count    = 3
-  env      = "goerli"
-  group    = "goerli-les"
-  size     = "s-2vcpu-4gb"
-  vol_size = 100
-  domain   = "${var.domain}"
-  open_ports = [ "30303-30303" ]
-}
+//module "les-goerli" {
+//  source   = "github.com/status-im/infra-tf-digital-ocean"
+//  count    = 3
+//  env      = "goerli"
+//  group    = "goerli-les"
+//  size     = "s-2vcpu-4gb"
+//  vol_size = 100
+//  domain   = "${var.domain}"
+//  open_ports = [ "30303-30303" ]
+//}
