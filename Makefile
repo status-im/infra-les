@@ -9,12 +9,12 @@ endif
 PLUGIN_DIR = ~/.terraform.d/plugins
 
 PROVIDER_NAME = terraform-provider-ansible
-PROVIDER_VERSION = v0.0.4
+PROVIDER_VERSION = v1.0.3
 PROVIDER_ARCHIVE = $(PROVIDER_NAME)-$(ARCH).zip
 PROVIDER_URL = https://github.com/nbering/terraform-provider-ansible/releases/download/$(PROVIDER_VERSION)/$(PROVIDER_ARCHIVE)
 
 PROVISIONER_NAME = terraform-provisioner-ansible
-PROVISIONER_VERSION = v2.0.0
+PROVISIONER_VERSION = v2.3.0
 PROVISIONER_ARCHIVE = $(PROVISIONER_NAME)-$(subst _,-,$(ARCH))_$(PROVISIONER_VERSION)
 PROVISIONER_URL = https://github.com/radekg/terraform-provisioner-ansible/releases/download/$(PROVISIONER_VERSION)/$(PROVISIONER_ARCHIVE)
 
@@ -60,8 +60,6 @@ digitalocean_token  = \"$(shell pass cloud/DigitalOcean/token)\"\n\
 cloudflare_token    = \"$(shell pass cloud/Cloudflare/token)\"\n\
 cloudflare_email    = \"$(shell pass cloud/Cloudflare/email)\"\n\
 cloudflare_org_id   = \"$(shell pass cloud/Cloudflare/org_id)\"\n\
-alicloud_access_key = \"$(shell pass cloud/Alibaba/access-key)\"\n\
-alicloud_secret_key = \"$(shell pass cloud/Alibaba/secret-key)\"\n\
 " > terraform.tfvars
 
 cleanup:
