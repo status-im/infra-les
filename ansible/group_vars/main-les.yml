@@ -4,11 +4,12 @@ geth_network_name: mainnet
 geth_cont_name: les-geth-full
 geth_sync_mode: full
 geth_data_path: /data
-geth_cont_image: 'ethereum/client-go:v1.8.27'
+geth_cont_image: 'ethereum/client-go:v1.9.5'
 geth_log_level_name: info
 
 # adjust cache size to available memory
-mem_cache_ratio: 0.75
+mem_cache_ratio: 0.70
+cont_mem_ratio: 0.75
 geth_cache: '{{ (ansible_memtotal_mb * mem_cache_ratio|float) | int }}'
 
 # geth metrics
